@@ -1,0 +1,49 @@
+name: Post diário UNICORPOS
+
+on:
+  schedule:
+    # 12:00 UTC = 09:00 em Brasília (UTC-3 o ano todo, sem horário de verão).
+    # De segunda a sexta. Feriados são filtrados dentro do publicar.py.
+    - cron: "0 12 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      dia:
+        description: "Forçar um dia do calendário (deixe vazio para usar a data de hoje)"
+        required: false
+      dry_run:
+        description: "Só simular, sem publicar"
+        type: boolean
+        default: false
+
+# Se dois disparos se cruzarem, o segundo espera. Evita post duplicado.
+concurrency:
+  group: post-diario
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publicar
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_LOCATION_ID: ${{ secrets.IG_LOCATION_ID }}
+          BASE_URL_IMAGENS: ${{ vars.BASE_URL_IMAGENS }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_DESTINO: ${{ vars.EMAIL_DESTINO }}
+        run: |
+          python3 publicar.py \
+            ${{ inputs.dry_run && '--dry-run' || '' }} \
+            ${{ inputs.dia && format('--dia {0}', inputs.dia) || '' }}

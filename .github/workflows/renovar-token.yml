@@ -1,0 +1,59 @@
+name: Renovar token do Instagram
+
+# O token de longa duração da Meta vale 60 dias. Se ele vencer, os posts param
+# em silêncio. Este workflow renova todo dia 1º e avisa se não conseguir.
+#
+# Para o `gh secret set` funcionar, o PAT precisa do escopo de escrita em
+# secrets do repositório (Actions: read and write / secrets: write).
+
+on:
+  schedule:
+    - cron: "0 13 1 * *"
+  workflow_dispatch:
+
+jobs:
+  renovar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Trocar por um token novo
+        id: renovar
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          META_APP_ID: ${{ secrets.META_APP_ID }}
+          META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+        run: python3 ferramentas/renovar_token.py
+
+      - name: Guardar o token novo
+        if: steps.renovar.outputs.token != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          echo -n "${{ steps.renovar.outputs.token }}" | gh secret set IG_TOKEN --repo "${{ github.repository }}"
+          echo "Token renovado e guardado."
+
+      - name: Avisar se falhou
+        if: failure()
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_DESTINO: ${{ vars.EMAIL_DESTINO }}
+        run: |
+          python3 -c "
+          import publicar
+          publicar.enviar_email(
+            'UNICORPOS Instagram: NAO consegui renovar o token',
+            'A renovacao automatica do token falhou. O token atual vence em ate 60 dias '
+            'e os posts vao parar quando isso acontecer.\n\n'
+            'Refaca o token em https://developers.facebook.com/tools/explorer e atualize '
+            'o segredo IG_TOKEN do repositorio.\n')
+          "
