@@ -18,6 +18,10 @@ on:
         description: "Só simular, sem publicar"
         type: boolean
         default: false
+      sem_espera:
+        description: "Publicar na hora, sem a espera aleatória (para recuperar um post atrasado)"
+        type: boolean
+        default: false
 
 # Se dois disparos se cruzarem, o segundo espera. Evita post duplicado.
 concurrency:
@@ -48,6 +52,9 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           EMAIL_DESTINO: ${{ vars.EMAIL_DESTINO }}
+          # Só o disparo manual pode zerar a espera. O agendado mantém o jitter,
+          # que é o que faz o horário variar como o de uma pessoa.
+          JITTER_MAX_MIN: ${{ inputs.sem_espera && '0' || '90' }}
         run: |
           python3 publicar.py \
             ${{ inputs.dry_run && '--dry-run' || '' }} \
