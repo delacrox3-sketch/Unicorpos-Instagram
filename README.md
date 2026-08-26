@@ -28,31 +28,70 @@ anda um dia.
 
 ## Instalação
 
+### Caminho curto
+
+Junte três coisas e rode um comando:
+
+```bash
+pip install Pillow openpyxl
+python3 instalar.py
+```
+
+O `instalar.py` troca o token, acha o `IG_USER_ID`, lista os "Planaltina" para você
+escolher o do DF, cria o repositório, sobe o código, grava todos os secrets e
+dispara um teste em dry-run. As três coisas que ele vai pedir:
+
+1. **META_APP_ID** e **META_APP_SECRET** — de um app tipo *Business* com o produto
+   *Instagram*, em [developers.facebook.com/apps](https://developers.facebook.com/apps)
+2. **Token curto** do [Graph API Explorer](https://developers.facebook.com/tools/explorer),
+   com `instagram_basic`, `instagram_content_publish`, `pages_read_engagement`,
+   `pages_show_list` e `business_management`
+3. **`gh` CLI logado** — [cli.github.com](https://cli.github.com), depois `gh auth login`
+
+Nenhum segredo aparece na tela nem fica em arquivo: vão direto para o GitHub Secrets.
+
+O passo a passo manual, caso prefira fazer com as próprias mãos, está abaixo.
+
+---
+
 ### 1. Conta do Instagram
 
 Precisa ser **Profissional** (Business ou Creator) e estar ligada a uma Página do
 Facebook. Conta pessoal não publica por API.
 
-### 2. App na Meta
+### 2. App na Meta — já criado
 
-Em [developers.facebook.com](https://developers.facebook.com) crie um app do tipo
-*Business* e adicione o produto **Instagram**. Anote o **App ID** e o **App Secret**.
+**UNICORPOS Social — App ID `1572907397545576`**, criado em 25/08/2026.
 
-Como a conta é sua, **você não precisa de App Review.** Aquele processo de 2 a 4
-semanas só vale para apps que publicam em contas de terceiros. Com você como
-administrador do app e dono da conta, o acesso padrão já basta.
+Configurado com o caso de uso *Gerenciar mensagens e conteúdo no Instagram*, na rota
+**"Configuração da API com login do Facebook"**. Essa rota é a que permite marcar
+localização no post (`location_id`); a rota de login do Instagram não permite, e
+localização é requisito fixo aqui.
+
+O app **não está ligado a nenhum portfólio empresarial**, de propósito: o portfólio
+*Unicorpos Especializacao* está restringido e recusa reivindicar apps. Veja a seção
+"Postura conservadora".
+
+Permissões já concedidas (status *Pronto para teste*):
+
+```
+instagram_basic
+instagram_content_publish
+pages_read_engagement
+pages_show_list
+business_management
+```
+
+Como a conta é sua, **não há App Review.** A própria tela de criação confirmou
+"nenhum requisito identificado". Aquele processo de 2 a 4 semanas só vale para apps
+que publicam em contas de terceiros.
+
+O **App Secret** está em *Configurações do app → Básico*.
 
 ### 3. Descobrir os IDs
 
-No [Graph API Explorer](https://developers.facebook.com/tools/explorer), selecione seu
-app e gere um token com estas permissões:
-
-```
-instagram_business_basic
-instagram_business_content_publish
-pages_show_list
-pages_read_engagement
-```
+No [Graph API Explorer](https://developers.facebook.com/tools/explorer), selecione o
+app **UNICORPOS Social** e gere um token com as cinco permissões acima.
 
 Depois, na sua máquina:
 
@@ -165,6 +204,37 @@ Três dias do calendário ficaram sem peça — **21, 24 e 27** — porque eram 
 story com conteúdo humano (Estrutura, Enquete, Bastidores) e o banco de reserva só
 tinha cinco peças livres para oito dias. Nesses dias o robô manda e-mail em vez de
 publicar. Para o mês ficar 100% automático, faltam três peças novas.
+
+---
+
+## Postura conservadora — leia antes de ligar
+
+O portfólio **Unicorpos Especializacao (1517938625875994) foi restringido pela Meta
+em 09/06/2026** por "automação que não segue nossas regras", sob os Padrões de
+Publicidade de integridade da conta. O recurso foi analisado e **negado na mesma
+data**. Consequências ativas: não pode criar ou veicular anúncios, nem usar ou
+compartilhar públicos.
+
+Publicar pela API oficial de Conteúdo do Instagram é uma via sancionada pela Meta e
+é coisa diferente do que motivou a restrição. Mas a conta já tem um histórico, e o
+robô foi ajustado para não parecer o que ela já foi acusada de ser:
+
+- **Um post por dia útil.** Nunca em lote.
+- **Horário variável.** O cron dispara 09:07 e o script espera de 0 a 90 minutos
+  antes de publicar. O post cai entre 09:07 e 10:37, diferente todo dia.
+  Ajuste com a variável `JITTER_MAX_MIN` (0 desliga).
+- **Legendas escritas por humano**, versionadas em git. Nada gerado na hora.
+- **Só publicação.** Não segue, não curte, não comenta, não manda DM.
+
+Regras de operação que o código não consegue garantir sozinho:
+
+- **Não rode nenhuma outra ferramenta de automação** na `@unicorposclinica` — nada
+  de bot de seguidor, DM em massa ou agendador não oficial. Foi provavelmente algo
+  assim que gerou a restrição de junho.
+- **Se a Meta enviar qualquer aviso novo, desligue o workflow primeiro** e pergunte
+  depois. Desativar é um clique; recuperar um perfil é outra história.
+- O que está em risco não é o robô: é o perfil `@unicorposclinica` e a Página
+  vinculada a ele.
 
 ---
 

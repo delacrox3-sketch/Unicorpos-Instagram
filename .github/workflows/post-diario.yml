@@ -2,9 +2,13 @@ name: Post diário UNICORPOS
 
 on:
   schedule:
-    # 12:00 UTC = 09:00 em Brasília (UTC-3 o ano todo, sem horário de verão).
+    # 12:07 UTC = 09:07 em Brasília (UTC-3 o ano todo, sem horário de verão).
     # De segunda a sexta. Feriados são filtrados dentro do publicar.py.
-    - cron: "0 12 * * 1-5"
+    # O publicar.py ainda espera de 0 a 90 min antes de postar, então o horário
+    # real cai entre 09:07 e 10:37 e muda todo dia. Isso é de propósito: o
+    # portfólio já foi restringido por automação e horário cravado é assinatura
+    # de máquina.
+    - cron: "7 12 * * 1-5"
   workflow_dispatch:
     inputs:
       dia:
@@ -23,7 +27,8 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # 90 min de espera aleatória + 10 de folga para a publicação em si.
+    timeout-minutes: 100
 
     steps:
       - uses: actions/checkout@v4

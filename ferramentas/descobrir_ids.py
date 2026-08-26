@@ -11,9 +11,10 @@ Rode na sua maquina, nao no GitHub:
 
     META_APP_ID=... META_APP_SECRET=... TOKEN_CURTO=... python3 ferramentas/descobrir_ids.py
 
-O TOKEN_CURTO sai de https://developers.facebook.com/tools/explorer com as
-permissoes instagram_business_basic, instagram_business_content_publish,
-pages_show_list e pages_read_engagement.
+O TOKEN_CURTO sai de https://developers.facebook.com/tools/explorer, com o app
+"UNICORPOS Social" (ID 1572907397545576) selecionado e as permissoes
+instagram_basic, instagram_content_publish, pages_read_engagement,
+pages_show_list e business_management.
 
 ATENCAO ao passo 2: existe "Planaltina" no Distrito Federal e "Planaltina de
 Goias", que e' outra cidade, a 10 km de distancia. O script mostra as duas para

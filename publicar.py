@@ -20,6 +20,7 @@ import argparse
 import datetime
 import json
 import os
+import random
 import smtplib
 import ssl
 import sys
@@ -293,6 +294,19 @@ def main():
     if not location_id:
         # Nao e' fatal, mas e' exatamente o erro que ja deu retrabalho antes.
         print("AVISO: IG_LOCATION_ID vazio — o post vai sem localizacao.")
+
+    # ---- espera aleatoria -------------------------------------------------
+    # O portfolio da UNICORPOS ja foi restringido pela Meta em 09/06/2026 por
+    # "automacao que nao segue as regras". Publicar as 09:00:00 cravadas, todo
+    # dia, e' assinatura de maquina. Um atraso aleatorio de ate 90 minutos faz
+    # o horario variar como o de uma pessoa. Nao e' truque para enganar
+    # ninguem: e' 1 post por dia util, pela API oficial, so sem a regularidade
+    # de relogio que nenhum humano tem.
+    jitter_max = int(os.environ.get("JITTER_MAX_MIN", "90"))
+    if jitter_max > 0:
+        espera = random.randint(0, jitter_max * 60)
+        print("Esperando %d min %d s antes de publicar." % (espera // 60, espera % 60))
+        time.sleep(espera)
 
     try:
         media_id = publicar_imagem(ig_user_id, token, image_url,
