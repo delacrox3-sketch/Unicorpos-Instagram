@@ -195,7 +195,8 @@ def main():
         hoje = datetime.date.fromisoformat(args.data)
     else:
         # O runner do GitHub roda em UTC. Brasilia e' UTC-3 o ano todo.
-        hoje = (datetime.datetime.utcnow() - datetime.timedelta(hours=3)).date()
+        agora_utc = datetime.datetime.now(datetime.timezone.utc)
+        hoje = (agora_utc - datetime.timedelta(hours=3)).date()
 
     n = args.dia if args.dia else numero_do_dia(hoje, dia_1)
 
@@ -234,6 +235,11 @@ def main():
         print("Peca do dia %d ja foi publicada a mao. Nada a fazer." % n)
         return 0
 
+    if acao == "nao_publicado":
+        print("Dia %d passou sem post e nao sera republicado. %s"
+              % (n, item.get("observacao", "")))
+        return 0
+
     if acao == "balanco":
         if not args.dry_run:
             enviar_email("UNICORPOS Instagram: dia 30, balanco do mes",
@@ -263,6 +269,18 @@ def main():
             enviar_email("UNICORPOS Instagram: aprovar post de odontologia (dia %d)" % n, corpo)
         print(corpo)
         return 0
+
+    # Qualquer acao que nao seja exatamente "publicar" para aqui. Sem este
+    # guarda, um valor novo ou digitado errado no calendario.json cairia no
+    # trecho de publicacao abaixo e iria ao ar sozinho.
+    if acao != "publicar":
+        corpo = ("Dia %d tem acao desconhecida no calendario.json: %r\n\n"
+                 "Nao publiquei nada, por seguranca. Corrija o calendario.json."
+                 % (n, acao))
+        if not args.dry_run:
+            enviar_email("UNICORPOS Instagram: acao desconhecida no dia %d" % n, corpo)
+        print(corpo)
+        return 1
 
     # --- publicar -----------------------------------------------------------
     base = os.environ.get("BASE_URL_IMAGENS", "").rstrip("/")

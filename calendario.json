@@ -10,6 +10,19 @@
     "Publicidade odontologica cita a RT: Dra. Mayra Gabriela Alves Cardona — CRO-DF n CD-10122.",
     "Fisioterapia: RT Mario Sergio Fernandes de Lima — CREFITO-11 n 442563-F."
   ],
+  "banco_reserva_mes_2": [
+    "01_capa",
+    "02_nova_unidade",
+    "03_laser_face",
+    "F10_escada",
+    "F1_sala_estetica",
+    "F4_consultorio"
+  ],
+  "historico": [
+    "26/08/2026 — perfil conferido: 4 posts no ar (13, 14, 18 e 19/08), todos publicados a mao. O robo nunca publicou: a unica execucao ate aqui foi um teste com dry_run marcado, que o GitHub mostrou como sucesso.",
+    "Dias 3, 5, 6, 7, 8 e 9 passaram sem post. As pecas nao foram usadas e estao em banco_reserva_mes_2.",
+    "A numeracao segue ancorada em dia_1 + dias uteis. Dia perdido nao empurra o resto do calendario: cada data continua com a peca que sempre teve."
+  ],
   "dias": [
     {
       "dia": 1,
@@ -18,84 +31,90 @@
       "imagem": "img/F11_fachada.jpg",
       "categoria": "institucional",
       "legenda": "Chegamos! 📍 Nossa unidade fica na DF-130, sentido Vale do Amanhecer, em Planaltina/DF.\n\nFisioterapia, quiropraxia, estética, depilação a laser e odontologia — tudo em uma estrutura completa, com estacionamento próprio.\n\nAtendimento com hora marcada. WhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #clinicaespecializada",
-      "alt_text": ""
+      "alt_text": "",
+      "publicado_em": "2026-08-13"
     },
     {
       "dia": 2,
-      "acao": "publicar",
+      "acao": "publicado_manualmente",
       "arquivo": "F7_recepcao",
       "imagem": "img/F7_recepcao.jpg",
       "categoria": "institucional",
       "legenda": "Cuidar de você é o nosso propósito. 🤍\n\nEsta é a nossa recepção. Trabalhamos com hora marcada justamente para que ninguém precise esperar.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #clinicaespecializada",
-      "alt_text": "Recepcao da UNICORPOS: balcao escuro com o logotipo dourado da clinica na parede, iluminacao embutida circular no teto e lustre de cristal. Texto sobreposto: Cuidar de voce e o nosso proposito."
+      "alt_text": "Recepcao da UNICORPOS: balcao escuro com o logotipo dourado da clinica na parede, iluminacao embutida circular no teto e lustre de cristal. Texto sobreposto: Cuidar de voce e o nosso proposito.",
+      "publicado_em": "2026-08-14"
     },
     {
       "dia": 3,
-      "acao": "publicar",
+      "acao": "nao_publicado",
       "arquivo": "F10_escada",
       "imagem": "img/F10_escada.jpg",
       "categoria": "institucional",
       "legenda": "Um espaco pensado para voce. 🤍\n\nDa recepcao a sala de atendimento, cada canto foi montado para que voce se sinta bem enquanto cuida de si.\n\nVenha conhecer. WhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #clinicaespecializada",
-      "alt_text": "Area de circulacao interna da clinica, com lustre de cristal e painel iluminado da UNICORPOS ao fundo. Texto sobreposto: Um espaco pensado para voce."
+      "alt_text": "Area de circulacao interna da clinica, com lustre de cristal e painel iluminado da UNICORPOS ao fundo. Texto sobreposto: Um espaco pensado para voce.",
+      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
     },
     {
       "dia": 4,
-      "acao": "publicar",
+      "acao": "publicado_manualmente",
       "arquivo": "F9_porta_fisio",
       "imagem": "img/F9_porta_fisio.jpg",
       "categoria": "fisio",
-      "legenda": "Fisioterapia e quiropraxia na unidade da DF-130. 🧑‍⚕️\n\nA avaliação inicial define seu plano de sessões — nada começa sem ela.\n\nSentido Vale do Amanhecer, com estacionamento no local.\nWhatsApp (61) 99578-9867\n\n#unicorpos #fisioterapia #quiropraxia #planaltinadf",
-      "alt_text": "Painel externo dourado da unidade DF-130 com o logotipo UNICORPOS e a inscricao Fisioterapia e Quiropraxia. Texto sobreposto: Unidade DF-130, sentido Vale do Amanhecer, com estacionamento no local."
+      "legenda": "Fisioterapia e quiropraxia na unidade da DF-130. 🧑‍⚕️\n\nA avaliação inicial define seu plano de sessões — nada começa sem ela.\n\nSentido Vale do Amanhecer, com estacionamento no local.\nWhatsApp (61) 99578-9867\n\nResponsável Técnico: Mario Sergio Fernandes de Lima — CREFITO-11 nº 442563-F\n\n#unicorpos #fisioterapia #quiropraxia #planaltinadf #valedoamanhecer",
+      "alt_text": "Painel externo dourado da unidade DF-130 com o logotipo UNICORPOS e a inscricao Fisioterapia e Quiropraxia. Texto sobreposto: Unidade DF-130, sentido Vale do Amanhecer, com estacionamento no local.",
+      "publicado_em": "2026-08-18"
     },
     {
       "dia": 5,
-      "acao": "publicar",
+      "acao": "nao_publicado",
       "arquivo": "F1_sala_estetica",
       "imagem": "img/F1_sala_estetica.jpg",
       "categoria": "estetica",
       "legenda": "Nossa sala de estética 💛\n\nDepilação a laser, limpeza de pele e tecnologias faciais — sempre com avaliação prévia do seu tipo de pele.\n\nAgende: (61) 99578-9867\n\n#unicorpos #depilacaoalaser #esteticafacial #planaltinadf",
-      "alt_text": "Sala de estetica da unidade DF-130, com maca clara, armarios de madeira, persianas e equipamentos ao fundo sob a placa Estetica. Texto sobreposto: Sala de estetica."
+      "alt_text": "Sala de estetica da unidade DF-130, com maca clara, armarios de madeira, persianas e equipamentos ao fundo sob a placa Estetica. Texto sobreposto: Sala de estetica.",
+      "observacao": "Dia util perdido. Em 19/08 foi publicado, no lugar, um carrossel sobre quantas sessoes de laser sao necessarias — peca criada fora do calendario."
     },
     {
       "dia": 6,
-      "acao": "publicar",
+      "acao": "nao_publicado",
       "arquivo": "01_capa",
       "imagem": "img/01_capa.jpg",
       "categoria": "institucional",
       "legenda": "Odontologia, estética e fisioterapia em Planaltina/DF. 🦷✨\n\nSomos duas unidades: a de Odontologia, no Setor Tradicional, e a nova unidade de Fisioterapia & Estética, na DF-130.\n\nPreços publicados, avaliação antes de qualquer procedimento e atendimento com hora marcada — de segunda a sábado.\n\nChame no WhatsApp e agende. 📲\n\n#unicorpos #planaltinadf #valedoamanhecer",
       "alt_text": "Card de apresentacao da UNICORPOS, clinica de odontologia, estetica e fisioterapia em Planaltina, Distrito Federal.",
       "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Enquete). Substituido por peca do banco de reserva."
+      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
     },
     {
       "dia": 7,
-      "acao": "aprovar",
+      "acao": "nao_publicado",
       "arquivo": "F4_consultorio",
       "imagem": "img/F4_consultorio.jpg",
       "categoria": "odonto",
       "legenda": "Consulta de avaliação gratuita na nossa odontologia. 🦷\n\nVocê recebe o plano de tratamento e o orçamento por escrito antes de qualquer procedimento.\n\nResponsável Técnica: Dra. Mayra Gabriela Alves Cardona — CRO-DF CD-10122\nWhatsApp (61) 99578-9867\n\n#unicorpos #dentista #odontologia #planaltinadf",
       "alt_text": "Consultorio odontologico da UNICORPOS com duas estacoes de trabalho, monitores e persianas, sob a placa Odontologia. Texto sobreposto: Consulta de avaliacao gratuita.",
-      "observacao": "Odontologia: nao publica sozinho. Vai por e-mail para aprovacao (Codigo de Etica Odontologica / CFO)."
+      "observacao": "Dia util perdido. Era peca de odontologia, que so vai ao ar apos sua aprovacao por e-mail — e o SMTP ainda nao estava configurado."
     },
     {
       "dia": 8,
-      "acao": "publicar",
+      "acao": "nao_publicado",
       "arquivo": "03_laser_face",
       "imagem": "img/03_laser_face.jpg",
       "categoria": "estetica",
       "legenda": "Depilação a laser facial: os valores por área, sem enrolação. 💛\n\nToda sessão começa com avaliação do seu tipo de pele e do seu histórico — é isso que garante um protocolo seguro.\n\nAgende pelo WhatsApp (61) 99578-9867.\n\n#unicorpos #planaltinadf #valedoamanhecer #depilacaoalaser #esteticafacial",
-      "alt_text": "Card dourado e creme da UNICORPOS com a tabela de valores por area de depilacao a laser facial."
+      "alt_text": "Card dourado e creme da UNICORPOS com a tabela de valores por area de depilacao a laser facial.",
+      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
     },
     {
       "dia": 9,
-      "acao": "publicar",
+      "acao": "nao_publicado",
       "arquivo": "02_nova_unidade",
       "imagem": "img/02_nova_unidade.jpg",
       "categoria": "institucional",
       "legenda": "Nossa nova unidade na DF-130 já está funcionando! 🎉\n\nDepilação a laser, estética facial e corporal, fisioterapia e Pilates clínico — tudo no mesmo lugar, com estacionamento no local.\n\nDF-130, KM 0, sentido Vale do Amanhecer.\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #novaunidade",
       "alt_text": "Card anunciando a nova unidade da UNICORPOS na DF-130, KM 0, sentido Vale do Amanhecer, com estacionamento no local.",
       "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Depoimento). Substituido por peca do banco de reserva."
+      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
     },
     {
       "dia": 10,
@@ -204,8 +223,14 @@
     },
     {
       "dia": 21,
-      "acao": "avisar",
-      "observacao": "Story de 'Estrutura' precisa de conteudo seu e o banco de reserva acabou. Escolha uma peca e edite o calendario.json."
+      "acao": "publicar",
+      "arquivo": "17_pos_laser",
+      "imagem": "img/17_pos_laser.jpg",
+      "categoria": "estetica",
+      "legenda": "Fez laser? Os dois dias seguintes contam tanto quanto a sessão. ☀️\n\nSem sol direto, sem água muito quente, sem sauna e sem treino pesado nas primeiras 24 horas. E protetor solar na área tratada todo dia, mesmo com tempo fechado.\n\nVermelhidão leve por algumas horas é esperado. Se passar disso, chama a gente que a gente olha.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #depilacaoalaser #planaltinadf #cuidadoscomapele",
+      "alt_text": "Card da UNICORPOS com cuidados apos a sessao de depilacao a laser: evitar sol, calor e exercicio nas primeiras 24 horas, usar protetor solar todo dia, e o aviso de que vermelhidao leve por algumas horas e esperada.",
+      "substituido": true,
+      "observacao": "Dia de story com conteudo humano (Estrutura). Substituido por peca do banco de reserva."
     },
     {
       "dia": 22,
@@ -227,8 +252,14 @@
     },
     {
       "dia": 24,
-      "acao": "avisar",
-      "observacao": "Story de 'Enquete' precisa de conteudo seu e o banco de reserva acabou. Escolha uma peca e edite o calendario.json."
+      "acao": "publicar",
+      "arquivo": "18_primeira_fisio",
+      "imagem": "img/18_primeira_fisio.jpg",
+      "categoria": "fisio",
+      "legenda": "Nunca fez fisioterapia e não sabe como começa? É assim. 🤍\n\nPrimeiro uma avaliação: conversa e testes de movimento para entender sua queixa. Depois você recebe o plano — quantas sessões, com que frequência e quanto custa, antes de começar qualquer coisa.\n\nO atendimento é individual, com hora marcada. Uma pessoa por vez.\n\nResponsável Técnico: Mario Sergio Fernandes de Lima — CREFITO-11 nº 442563-F\nWhatsApp (61) 99578-9867\n\n#unicorpos #fisioterapia #planaltinadf #valedoamanhecer",
+      "alt_text": "Card da UNICORPOS explicando os tres passos de quem nunca fez fisioterapia: avaliacao, plano de sessoes com valor informado, e atendimento individual com hora marcada.",
+      "substituido": true,
+      "observacao": "Dia de story com conteudo humano (Enquete). Substituido por peca do banco de reserva."
     },
     {
       "dia": 25,
@@ -250,8 +281,14 @@
     },
     {
       "dia": 27,
-      "acao": "avisar",
-      "observacao": "Story de 'Bastidores' precisa de conteudo seu e o banco de reserva acabou. Escolha uma peca e edite o calendario.json."
+      "acao": "publicar",
+      "arquivo": "19_biosseguranca",
+      "imagem": "img/19_biosseguranca.jpg",
+      "categoria": "institucional",
+      "legenda": "Tem uma parte do atendimento que você não vê — e é bom que seja assim. 🧼\n\nEntre um paciente e outro, maca, aparelhos e superfícies são higienizados. O que é de uso único é aberto e descartado na sua frente. As salas são individuais, climatizadas e ventiladas.\n\nBiossegurança não é diferencial. É obrigação.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #biosseguranca #clinicaespecializada",
+      "alt_text": "Card da UNICORPOS sobre a rotina de higienizacao: maca e aparelhos limpos a cada paciente, material de uso unico descartado na frente do paciente, e salas individuais climatizadas.",
+      "substituido": true,
+      "observacao": "Dia de story com conteudo humano (Bastidores). Substituido por peca do banco de reserva."
     },
     {
       "dia": 28,

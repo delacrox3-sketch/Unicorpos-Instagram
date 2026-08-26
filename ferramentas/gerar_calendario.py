@@ -38,6 +38,9 @@ CATEGORIA = {
     "F4_consultorio": "odonto",
     "08_odontologia": "odonto",
     "10_odonto_precos": "odonto",
+    "17_pos_laser": "estetica",
+    "18_primeira_fisio": "fisio",
+    "19_biosseguranca": "institucional",
     "F9_porta_fisio": "fisio",
     "F6_fisio": "fisio",
     "11_pilates_rpg": "fisio",
@@ -83,6 +86,9 @@ ALT = {
     "07_fisioterapia": "Card da UNICORPOS com os valores de fisioterapia ortopedica, reabilitacao de coluna, RPG e atendimento pos-operatorio.",
     "15_lgpd": "Card da UNICORPOS explicando que os dados dos pacientes sao usados apenas para agendamento e atendimento, conforme a Lei 13.709/2018.",
     "10_odonto_precos": "Card da UNICORPOS sobre estetica dental: clareamento, facetas, lentes de contato, proteses, coroas e implantes, com avaliacao gratuita.",
+    "17_pos_laser": "Card da UNICORPOS com cuidados apos a sessao de depilacao a laser: evitar sol, calor e exercicio nas primeiras 24 horas, usar protetor solar todo dia, e o aviso de que vermelhidao leve por algumas horas e esperada.",
+    "18_primeira_fisio": "Card da UNICORPOS explicando os tres passos de quem nunca fez fisioterapia: avaliacao, plano de sessoes com valor informado, e atendimento individual com hora marcada.",
+    "19_biosseguranca": "Card da UNICORPOS sobre a rotina de higienizacao: maca e aparelhos limpos a cada paciente, material de uso unico descartado na frente do paciente, e salas individuais climatizadas.",
 }
 
 # ---------------------------------------------------------------------------
@@ -90,12 +96,51 @@ ALT = {
 # entao vai ao feed como post normal em vez de virar story.
 # ---------------------------------------------------------------------------
 LEGENDAS_EXTRA = {
+    "17_pos_laser": (
+        "Fez laser? Os dois dias seguintes contam tanto quanto a sessão. ☀️\n\n"
+        "Sem sol direto, sem água muito quente, sem sauna e sem treino pesado nas "
+        "primeiras 24 horas. E protetor solar na área tratada todo dia, mesmo com "
+        "tempo fechado.\n\n"
+        "Vermelhidão leve por algumas horas é esperado. Se passar disso, chama a "
+        "gente que a gente olha.\n\n"
+        "WhatsApp (61) 99578-9867\n\n"
+        "#unicorpos #depilacaoalaser #planaltinadf #cuidadoscomapele"
+    ),
+    "18_primeira_fisio": (
+        "Nunca fez fisioterapia e não sabe como começa? É assim. 🤍\n\n"
+        "Primeiro uma avaliação: conversa e testes de movimento para entender sua "
+        "queixa. Depois você recebe o plano — quantas sessões, com que frequência e "
+        "quanto custa, antes de começar qualquer coisa.\n\n"
+        "O atendimento é individual, com hora marcada. Uma pessoa por vez.\n\n"
+        "Responsável Técnico: Mario Sergio Fernandes de Lima — CREFITO-11 nº 442563-F\n"
+        "WhatsApp (61) 99578-9867\n\n"
+        "#unicorpos #fisioterapia #planaltinadf #valedoamanhecer"
+    ),
+    "19_biosseguranca": (
+        "Tem uma parte do atendimento que você não vê — e é bom que seja assim. 🧼\n\n"
+        "Entre um paciente e outro, maca, aparelhos e superfícies são higienizados. "
+        "O que é de uso único é aberto e descartado na sua frente. As salas são "
+        "individuais, climatizadas e ventiladas.\n\n"
+        "Biossegurança não é diferencial. É obrigação.\n\n"
+        "WhatsApp (61) 99578-9867\n\n"
+        "#unicorpos #planaltinadf #biosseguranca #clinicaespecializada"
+    ),
     "F10_escada": (
         "Um espaco pensado para voce. 🤍\n\n"
         "Da recepcao a sala de atendimento, cada canto foi montado para que voce "
         "se sinta bem enquanto cuida de si.\n\n"
         "Venha conhecer. WhatsApp (61) 99578-9867\n\n"
         "#unicorpos #planaltinadf #valedoamanhecer #clinicaespecializada"
+    ),
+    # Texto exato que foi ao ar em 18/08. A planilha guarda uma versao sem a
+    # linha do RT; aqui fica o registro do que a conta realmente publicou.
+    "F9_porta_fisio": (
+        "Fisioterapia e quiropraxia na unidade da DF-130. 🧑‍⚕️\n\n"
+        "A avaliação inicial define seu plano de sessões — nada começa sem ela.\n\n"
+        "Sentido Vale do Amanhecer, com estacionamento no local.\n"
+        "WhatsApp (61) 99578-9867\n\n"
+        "Responsável Técnico: Mario Sergio Fernandes de Lima — CREFITO-11 nº 442563-F\n\n"
+        "#unicorpos #fisioterapia #quiropraxia #planaltinadf #valedoamanhecer"
     ),
 }
 
@@ -110,11 +155,38 @@ SUBSTITUICAO = {
     12: "06_massagens",
     15: "07_fisioterapia",
     18: "15_lgpd",
-    # 21, 24 e 27 ficam sem peca: o banco de reserva acaba aqui.
-    # Nesses dias o robo manda e-mail em vez de publicar.
+    # O banco de reserva acaba no dia 18. Os tres dias abaixo usam pecas novas,
+    # criadas por ferramentas/gerar_pecas.py, que seguem o tema que a planilha
+    # pedia para o story daquele dia.
+    21: "17_pos_laser",        # planilha: Stories "Estrutura"  -> virou dica pos-laser
+    24: "18_primeira_fisio",   # planilha: Stories "Enquete: ja fez fisioterapia?"
+    27: "19_biosseguranca",    # planilha: Stories "Bastidores: higienizacao"
 }
 
-JA_PUBLICADO = {1}
+# ---------------------------------------------------------------------------
+# Conferido no perfil @unicorposclinica em 26/08/2026. O robo so entrou no ar
+# em 26/08, entao tudo que foi ao ar antes disso foi publicado a mao.
+# ---------------------------------------------------------------------------
+PUBLICADO_EM = {
+    1: "2026-08-13",   # F11_fachada
+    2: "2026-08-14",   # F7_recepcao
+    4: "2026-08-18",   # F9_porta_fisio (arte final diferente da prevista)
+}
+
+JA_PUBLICADO = set(PUBLICADO_EM)
+
+# Dias uteis que passaram sem post porque o robo ainda nao estava ligado. As
+# pecas nao foram queimadas: voltam para o banco de reserva do mes 2.
+NAO_PUBLICADO = {
+    3: "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao.",
+    5: ("Dia util perdido. Em 19/08 foi publicado, no lugar, um carrossel sobre "
+        "quantas sessoes de laser sao necessarias — peca criada fora do calendario."),
+    6: "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao.",
+    7: ("Dia util perdido. Era peca de odontologia, que so vai ao ar apos sua "
+        "aprovacao por e-mail — e o SMTP ainda nao estava configurado."),
+    8: "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao.",
+    9: "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao.",
+}
 
 
 def limpar(txt):
@@ -192,11 +264,17 @@ def main():
                 continue
 
         categoria = CATEGORIA.get(peca, "institucional")
+        if n in NAO_PUBLICADO:
+            acao = "nao_publicado"
+        elif d["ja_publicado"]:
+            acao = "publicado_manualmente"
+        elif categoria == "odonto":
+            acao = "aprovar"
+        else:
+            acao = "publicar"
         registro = {
             "dia": n,
-            "acao": "publicado_manualmente" if d["ja_publicado"] else (
-                "aprovar" if categoria == "odonto" else "publicar"
-            ),
+            "acao": acao,
             "arquivo": peca,
             "imagem": "img/%s.jpg" % peca,
             "categoria": categoria,
@@ -206,14 +284,18 @@ def main():
         if substituido:
             registro["substituido"] = True
             registro["observacao"] = motivo
-        if categoria == "odonto":
+        if categoria == "odonto" and acao != "nao_publicado":
             registro["observacao"] = (
                 "Odontologia: nao publica sozinho. Vai por e-mail para aprovacao "
                 "(Codigo de Etica Odontologica / CFO)."
             )
-        if not registro["legenda"]:
+        if not registro["legenda"] and acao not in ("publicado_manualmente", "nao_publicado"):
             registro["acao"] = "avisar"
             registro["observacao"] = "Sem legenda na planilha para '%s'." % peca
+        if n in PUBLICADO_EM:
+            registro["publicado_em"] = PUBLICADO_EM[n]
+        if n in NAO_PUBLICADO:
+            registro["observacao"] = NAO_PUBLICADO[n]
         saida.append(registro)
 
     doc = {
@@ -227,6 +309,19 @@ def main():
             "Odontologia: nunca publicar tabela de precos (CFO).",
             "Publicidade odontologica cita a RT: Dra. Mayra Gabriela Alves Cardona — CRO-DF n CD-10122.",
             "Fisioterapia: RT Mario Sergio Fernandes de Lima — CREFITO-11 n 442563-F.",
+        ],
+        "banco_reserva_mes_2": sorted(
+            d["arquivo"] for d in saida
+            if d.get("acao") == "nao_publicado" and d.get("arquivo")
+        ),
+        "historico": [
+            "26/08/2026 — perfil conferido: 4 posts no ar (13, 14, 18 e 19/08), todos "
+            "publicados a mao. O robo nunca publicou: a unica execucao ate aqui foi um "
+            "teste com dry_run marcado, que o GitHub mostrou como sucesso.",
+            "Dias 3, 5, 6, 7, 8 e 9 passaram sem post. As pecas nao foram usadas e "
+            "estao em banco_reserva_mes_2.",
+            "A numeracao segue ancorada em dia_1 + dias uteis. Dia perdido nao empurra "
+            "o resto do calendario: cada data continua com a peca que sempre teve.",
         ],
         "dias": saida,
     }
