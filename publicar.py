@@ -145,7 +145,7 @@ def enviar_email(assunto, corpo):
     host = os.environ.get("SMTP_HOST")
     usuario = os.environ.get("SMTP_USER")
     senha = os.environ.get("SMTP_PASS")
-    destino = os.environ.get("EMAIL_DESTINO", "leonardo.lima@i9atech.com")
+    destino = os.environ.get("EMAIL_DESTINO", "suporte@unicorpos.com.br")
 
     if not (host and usuario and senha):
         print("[e-mail nao configurado] %s\n%s" % (assunto, corpo))

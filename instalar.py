@@ -300,7 +300,7 @@ def passo_6_segredos(repo, token, ig_user_id, location_id, app_id, app_secret):
     secret("META_APP_SECRET", app_secret)
 
     variavel("BASE_URL_IMAGENS", "https://raw.githubusercontent.com/%s/main" % repo)
-    variavel("EMAIL_DESTINO", "leonardo.lima@i9atech.com")
+    variavel("EMAIL_DESTINO", "suporte@unicorpos.com.br")
 
     print("\n   --- E-mail de aviso (odontologia, falhas, fim de mes) ---")
     print("   Deixe em branco para configurar depois.")

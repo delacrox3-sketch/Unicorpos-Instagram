@@ -146,7 +146,7 @@ Em **Settings → Secrets and variables → Actions**:
 | Nome | Valor |
 |---|---|
 | `BASE_URL_IMAGENS` | `https://raw.githubusercontent.com/SEU_USUARIO/unicorpos-instagram/main` |
-| `EMAIL_DESTINO` | `leonardo.lima@i9atech.com` |
+| `EMAIL_DESTINO` | `suporte@unicorpos.com.br` |
 
 ### 6. Testar antes de soltar
 

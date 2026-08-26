@@ -90,7 +90,7 @@ def main():
     print("  Secret   META_APP_ID      = %s" % app_id)
     print("  Secret   META_APP_SECRET  = (o mesmo que voce usou aqui)")
     print("  Variable BASE_URL_IMAGENS = https://raw.githubusercontent.com/USUARIO/REPO/main")
-    print("  Variable EMAIL_DESTINO    = leonardo.lima@i9atech.com")
+    print("  Variable EMAIL_DESTINO    = suporte@unicorpos.com.br")
     print("=" * 62)
     print("\nO token longo esta abaixo. Copie e feche o terminal depois:\n")
     print(token)
