@@ -70,10 +70,16 @@ def main():
     print()
 
     # ---- 3. IG_LOCATION_ID -------------------------------------------------
-    print("== Lugares chamados 'Planaltina' ==")
+    # `type=place` e' obrigatorio. Sem ele, a busca devolve Paginas do Facebook
+    # sem endereco fisico, e a API de publicacao recusa esses IDs com o subcode
+    # 2207019 — foi o que derrubou o post do dia 10 em 26/08/2026.
+    # O `center`/`distance` em volta de Planaltina/DF ainda exclui Planaltina de
+    # Goias, que fica ~20 km ao norte.
+    print("== Lugares chamados 'Planaltina' (só locais físicos, raio de 15 km) ==")
     print("   ESCOLHA O DO DISTRITO FEDERAL. 'Planaltina de Goias' e' outra cidade.\n")
     lugares = get("pages/search", access_token=token, q="Planaltina",
-                  fields="id,name,location", limit=25)
+                  type="place", center="-15.6214,-47.6489", distance=15000,
+                  fields="id,name,location", limit=50)
     for lug in lugares.get("data", []):
         loc = lug.get("location") or {}
         estado = loc.get("state") or "?"
@@ -81,6 +87,9 @@ def main():
         marca = "  <== provavelmente este" if estado in ("DF", "Distrito Federal") else ""
         print("   id=%-18s %-38s [%s / %s]%s" % (
             lug["id"], lug["name"][:38], cidade, estado, marca))
+    print("\n   Antes de gravar o secret, VALIDE o id escolhido:")
+    print("     python3 ferramentas/achar_local.py")
+    print("   Ele cria um container de teste com aquele local e diz se a Meta aceita.")
 
     print("\n" + "=" * 62)
     print("Guarde no repositorio, em Settings > Secrets and variables > Actions:")

@@ -97,6 +97,16 @@ def chamar(url, dados=None, tentativas=3):
     raise ultimo
 
 
+# Subcode que a Meta devolve quando o location_id nao existe, nao e' um local
+# fisico ou nao pode ser visto pela conta. Ver ferramentas/achar_local.py.
+SUBCODE_LOCAL_INVALIDO = 2207019
+
+
+def erro_de_localizacao(e):
+    texto = str(e)
+    return str(SUBCODE_LOCAL_INVALIDO) in texto or "localiza" in texto.lower()
+
+
 def publicar_imagem(ig_user_id, token, image_url, legenda, alt_text, location_id):
     """
     Publicacao em dois passos, como a API exige:
@@ -326,10 +336,42 @@ def main():
         print("Esperando %d min %d s antes de publicar." % (espera // 60, espera % 60))
         time.sleep(espera)
 
+    sem_local = os.environ.get("PERMITIR_SEM_LOCALIZACAO", "1") != "0"
     try:
         media_id = publicar_imagem(ig_user_id, token, image_url,
                                    item["legenda"], item["alt_text"], location_id)
     except Exception as e:
+        # Localizacao recusada nao deveria custar o dia inteiro. Em 26/08/2026 o
+        # post do dia 10 morreu exatamente assim, porque o IG_LOCATION_ID era um
+        # id de Pagina e nao de local fisico. Melhor um post sem geotag, com
+        # aviso alto, do que dia perdido em silencio.
+        if location_id and sem_local and erro_de_localizacao(e):
+            print("A Meta recusou o IG_LOCATION_ID. Republicando SEM localizacao.")
+            try:
+                media_id = publicar_imagem(ig_user_id, token, image_url,
+                                           item["legenda"], item["alt_text"], None)
+            except Exception as e2:
+                corpo = ("Falhei ao publicar o dia %d (%s), com e sem localizacao.\n\n"
+                         "Erro com localizacao: %s\n\nErro sem localizacao: %s\n\n"
+                         "Publique a mao, se der tempo. A legenda esta no calendario.json."
+                         % (n, item["arquivo"], e, e2))
+                enviar_email("UNICORPOS Instagram: FALHOU o post do dia %d" % n, corpo)
+                print(corpo)
+                return 1
+            corpo = (
+                "O post do dia %d (%s) foi publicado, mas SEM a localizacao.\n\n"
+                "A Meta recusou o IG_LOCATION_ID atual:\n%s\n\n"
+                "Marque 'Planaltina (Distrito Federal)' a mao neste post e corrija o\n"
+                "secret. Para achar e validar o id certo, rode na sua maquina:\n\n"
+                "  IG_USER_ID=... IG_TOKEN=... BASE_URL_IMAGENS=... \\\n"
+                "  python3 ferramentas/achar_local.py\n\n"
+                "Enquanto o secret nao for corrigido, todo post vai sair sem geotag.\n"
+                % (n, item["arquivo"], e))
+            enviar_email("UNICORPOS Instagram: dia %d publicado SEM localizacao" % n, corpo)
+            print(corpo)
+            print("Publicado sem localizacao. media_id=%s" % media_id)
+            return 0
+
         corpo = ("Falhei ao publicar o dia %d (%s).\n\nErro: %s\n\n"
                  "Publique a mao, se der tempo. A legenda esta no calendario.json."
                  % (n, item["arquivo"], e))

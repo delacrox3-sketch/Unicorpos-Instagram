@@ -186,6 +186,30 @@ e a categoria em `ferramentas/gerar_calendario.py`, e rode os dois scripts acima
 
 ## Manutenção
 
+### Localização recusada pela Meta
+
+Se o `IG_LOCATION_ID` não for um **local físico**, a API de publicação recusa com
+`OAuthException code 100, subcode 2207019`. Isso derrubou o post do dia 10 em
+26/08/2026: o ID cadastrado era de uma Página do Facebook, não de um lugar.
+
+Para achar e **validar** o ID certo:
+
+```bash
+IG_USER_ID=...  IG_TOKEN=...  \
+BASE_URL_IMAGENS=https://raw.githubusercontent.com/delacrox3-sketch/Unicorpos-Instagram/main \
+python3 ferramentas/achar_local.py
+```
+
+Ele busca com `type=place` num raio de 15 km de Planaltina/DF — o que já exclui
+Planaltina de Goiás por distância — e testa cada candidato criando um container
+de mídia real. Container criado é a única prova de que o ID serve. Nada é
+publicado: containers não publicados expiram sozinhos em 24 h.
+
+Desde então, se a localização for recusada **o robô republica sem geotag** em vez
+de perder o dia, e manda e-mail pedindo para você marcar o local à mão e corrigir
+o secret. Para desligar esse comportamento e preferir falhar, defina a variável
+`PERMITIR_SEM_LOCALIZACAO=0`.
+
 **O token vence a cada 60 dias.** É a causa número um de robô de Instagram parar
 em silêncio. O workflow `renovar-token.yml` renova todo dia 1º e manda e-mail se
 falhar. Ainda assim, vale conferir o perfil de vez em quando.
