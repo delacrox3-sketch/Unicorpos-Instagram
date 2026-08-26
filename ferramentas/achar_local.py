@@ -25,9 +25,14 @@ Duas correcoes aqui:
 
 Como rodar (na sua maquina, nao no GitHub)
 ------------------------------------------
-    IG_USER_ID=...  IG_TOKEN=...  \
-    BASE_URL_IMAGENS=https://raw.githubusercontent.com/delacrox3-sketch/Unicorpos-Instagram/main \
-    python3 ferramentas/achar_local.py
+    cd automacao/instagram-bot
+    python ferramentas/achar_local.py
+
+So isso. O que faltar, ele pergunta — o token nao aparece na tela enquanto voce
+digita, e o IG_USER_ID ele descobre sozinho pelo token se voce deixar em branco.
+Secret do GitHub nao pode ser lido de volta, entao pegue um token novo em
+https://developers.facebook.com/tools/explorer (app UNICORPOS Social). Token
+curto serve: este script nao publica nada.
 
 Opcoes:
     --q "Planaltina"     termo de busca (padrao: Planaltina)
@@ -41,6 +46,7 @@ Actions > IG_LOCATION_ID.
 """
 
 import argparse
+import getpass
 import json
 import os
 import sys
@@ -49,6 +55,8 @@ import urllib.parse
 import urllib.request
 
 API = "https://graph.facebook.com/v21.0"
+
+BASE_PADRAO = "https://raw.githubusercontent.com/delacrox3-sketch/Unicorpos-Instagram/main"
 
 # Planaltina/DF, Setor Tradicional. Aproximado de proposito: serve so para
 # centrar a busca. Planaltina de Goias fica ~20 km ao norte, entao um raio de
@@ -67,6 +75,8 @@ def chamar(caminho, **params):
             return None, json.loads(detalhe).get("error", {})
         except Exception:
             return None, {"message": detalhe, "code": e.code}
+    except Exception as e:  # rede, DNS, proxy, TLS
+        return None, {"message": "nao consegui falar com a Meta: %s" % e}
 
 
 def postar(caminho, **campos):
@@ -82,6 +92,8 @@ def postar(caminho, **campos):
             return None, json.loads(detalhe).get("error", {})
         except Exception:
             return None, {"message": detalhe, "code": e.code}
+    except Exception as e:  # rede, DNS, proxy, TLS
+        return None, {"message": "nao consegui falar com a Meta: %s" % e}
 
 
 def eh_df(loc):
@@ -101,14 +113,40 @@ def main():
     p.add_argument("--sem-validar", action="store_true")
     args = p.parse_args()
 
+    # Secret do GitHub nao pode ser lido de volta, e no PowerShell a sintaxe
+    # `VAR=valor comando` nao existe. Entao: se faltar algo, pergunta.
     token = os.environ.get("IG_TOKEN")
-    ig_user_id = os.environ.get("IG_USER_ID")
-    base = (os.environ.get("BASE_URL_IMAGENS") or "").rstrip("/")
     if not token:
-        sys.exit("Falta IG_TOKEN no ambiente.\n\n" + __doc__)
-    if not args.sem_validar and not (ig_user_id and base):
-        sys.exit("Para validar preciso de IG_USER_ID e BASE_URL_IMAGENS.\n"
-                 "Ou rode com --sem-validar para so listar.\n\n" + __doc__)
+        print("Cole o token do Instagram (nao aparece na tela enquanto voce digita).")
+        print("Pegue um em https://developers.facebook.com/tools/explorer com o app")
+        print("UNICORPOS Social. Token curto serve: este script nao publica nada.\n")
+        try:
+            token = getpass.getpass("IG_TOKEN: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            sys.exit("\nCancelado.")
+    if not token:
+        sys.exit("Sem token nao da para consultar a Meta.")
+
+    ig_user_id = os.environ.get("IG_USER_ID")
+    base = (os.environ.get("BASE_URL_IMAGENS") or BASE_PADRAO).rstrip("/")
+
+    if not args.sem_validar and not ig_user_id:
+        print("\nAgora o IG_USER_ID (o id numerico de @unicorposclinica).")
+        print("Se nao souber, deixe em branco: eu descubro pelo token.")
+        ig_user_id = input("IG_USER_ID [descobrir]: ").strip()
+        if not ig_user_id:
+            contas, erro = chamar("me/accounts", access_token=token,
+                                  fields="name,instagram_business_account{id,username}")
+            if erro:
+                sys.exit("Nao consegui descobrir: %s" % erro.get("message"))
+            for p in (contas or {}).get("data", []):
+                ig = p.get("instagram_business_account") or {}
+                if ig.get("username") == "unicorposclinica":
+                    ig_user_id = ig["id"]
+                    print("   achei: %s" % ig_user_id)
+            if not ig_user_id:
+                sys.exit("Nao achei @unicorposclinica neste token. Confira as permissoes.")
+    print()
 
     # ---- busca -------------------------------------------------------------
     print("== Locais fisicos perto de Planaltina/DF ==")
