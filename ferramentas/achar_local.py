@@ -106,6 +106,9 @@ def eh_df(loc):
 
 def main():
     p = argparse.ArgumentParser()
+    p.add_argument("--testar", metavar="ID",
+                   help="valida um location_id especifico e pula a busca. "
+                        "Aceita tambem a URL /explore/locations/<id>/...")
     p.add_argument("--q", default="Planaltina")
     p.add_argument("--centro", default=os.environ.get("CENTRO_BUSCA", CENTRO_PADRAO))
     p.add_argument("--raio", type=int, default=15000)
@@ -148,6 +151,41 @@ def main():
                 sys.exit("Nao achei @unicorposclinica neste token. Confira as permissoes.")
     print()
 
+    # ---- modo teste direto -------------------------------------------------
+    # A busca `pages/search` exige Page Public Content Access, que passa por App
+    # Review. Sem isso ela devolve erro #10. Como o perfil ja tem posts com a
+    # localizacao certa, da para pegar o id direto do proprio Instagram:
+    #   abra um post publicado > clique na localizacao > a URL fica
+    #   instagram.com/explore/locations/<ID>/planaltina-distrito-federal/
+    # Este modo valida esse id sem depender da busca.
+    if args.testar:
+        alvo = args.testar.strip().strip("/")
+        if "explore/locations/" in alvo:
+            partes = alvo.split("explore/locations/")[1].split("/")
+            alvo = partes[0]
+        if not alvo.isdigit():
+            sys.exit("Isso nao parece um id: %r" % args.testar)
+
+        imagem = "%s/img/F2_laser.jpg" % base
+        print("== Validando o id %s ==" % alvo)
+        print("   cria um container de teste; nada e publicado\n")
+        res, erro = postar("%s/media" % ig_user_id,
+                           image_url=imagem,
+                           caption="teste de localizacao — nao publicado",
+                           location_id=alvo,
+                           access_token=token)
+        if res and res.get("id"):
+            print("   OK. A Meta aceitou este local.\n")
+            print("=" * 68)
+            print("IG_LOCATION_ID = %s" % alvo)
+            print("Grave em Settings > Secrets and variables > Actions.")
+            print("=" * 68)
+            return 0
+        sub = (erro or {}).get("error_subcode")
+        msg = (erro or {}).get("error_user_msg") or (erro or {}).get("message") or "?"
+        print("   RECUSADO%s: %s" % (" (local invalido)" if sub == 2207019 else "", msg))
+        return 1
+
     # ---- busca -------------------------------------------------------------
     print("== Locais fisicos perto de Planaltina/DF ==")
     print("   busca: q=%r  centro=%s  raio=%dm  type=place\n" % (
@@ -162,8 +200,25 @@ def main():
                          fields="id,name,location,link,is_permanently_closed",
                          limit=50)
     if erro:
-        print("   A busca falhou: %s" % erro.get("message"))
-        print("   Se falar em permissao, o token precisa de pages_read_engagement.")
+        print("   A busca falhou: %s\n" % erro.get("message"))
+        if erro.get("code") == 10 or "pages_read_engagement" in str(erro.get("message")):
+            perms, _ = chamar("me/permissions", access_token=token)
+            concedidas = sorted(d["permission"] for d in (perms or {}).get("data", [])
+                                if d.get("status") == "granted")
+            print("   Permissoes deste token: %s" % (", ".join(concedidas) or "(nenhuma)"))
+            print()
+            print("   Esse endpoint costuma exigir a feature 'Page Public Content")
+            print("   Access', que passa por App Review — semanas de espera. Nao vale")
+            print("   a pena so para descobrir um id.")
+            print()
+            print("   Atalho: seus posts ja publicados tem a localizacao certa.")
+            print("   Abra um deles, clique no nome da localizacao, e a URL vira")
+            print("   instagram.com/explore/locations/<ID>/planaltina-distrito-federal/")
+            print("   Depois valide o id com:")
+            print()
+            print("     python ferramentas/achar_local.py --testar <ID>")
+            print()
+            print("   Para @unicorposclinica o id observado em 26/08/2026 e' 104087622960687.")
         return 1
 
     itens = dados.get("data", [])

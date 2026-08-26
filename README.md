@@ -205,6 +205,17 @@ Planaltina de Goiás por distância — e testa cada candidato criando um contai
 de mídia real. Container criado é a única prova de que o ID serve. Nada é
 publicado: containers não publicados expiram sozinhos em 24 h.
 
+**Se a busca devolver erro #10**, é permissão: `pages/search` costuma exigir a
+feature *Page Public Content Access*, que passa por App Review. Não vale a espera
+só para descobrir um ID. Use o atalho — os posts já publicados têm a localização
+certa marcada:
+
+1. abra um post no Instagram e clique no nome da localização;
+2. a URL vira `instagram.com/explore/locations/<ID>/planaltina-distrito-federal/`;
+3. valide: `python ferramentas/achar_local.py --testar <ID>`
+
+Para `@unicorposclinica`, o ID observado em 26/08/2026 é **104087622960687**.
+
 Desde então, se a localização for recusada **o robô republica sem geotag** em vez
 de perder o dia, e manda e-mail pedindo para você marcar o local à mão e corrigir
 o secret. Para desligar esse comportamento e preferir falhar, defina a variável
