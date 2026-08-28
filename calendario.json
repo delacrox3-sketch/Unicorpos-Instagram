@@ -141,9 +141,9 @@
       "imagem": "img/06_massagens.jpg",
       "categoria": "estetica",
       "legenda": "Massagens e terapias corporais para quem precisa desacelerar. 💆\n\nRelaxante, modeladora, drenagem linfática e liberação miofascial.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #depilacaoalaser #esteticafacial",
-      "alt_text": "Card da UNICORPOS sobre massagens e terapias corporais: relaxante, modeladora, drenagem linfatica e liberacao miofascial.",
+      "alt_text": "Foto de uma sessao de massagem: profissional aplicando pressao com as duas maos nas costas de uma pessoa deitada na maca, coberta por toalha bege. Abaixo, faixa creme da UNICORPOS com o titulo Massagens e terapias corporais e a lista: relaxante, modeladora, drenagem linfatica e liberacao miofascial.",
       "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Antes/depois). Substituido por peca do banco de reserva."
+      "observacao": "Card com foto (banco Pexels) substituiu a peca antiga 06_massagens, que tinha o miolo vazio. Gerado por ferramentas/gerar_card_foto.py em 28/08/2026."
     },
     {
       "dia": 13,
