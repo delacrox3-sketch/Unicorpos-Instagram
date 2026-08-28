@@ -107,14 +107,14 @@
     },
     {
       "dia": 9,
-      "acao": "nao_publicado",
-      "arquivo": "02_nova_unidade",
-      "imagem": "img/02_nova_unidade.jpg",
+      "acao": "publicar",
+      "arquivo": "vaga_clinico_medico",
+      "imagem": "img/vaga_clinico_medico.jpg",
       "categoria": "institucional",
-      "legenda": "Nossa nova unidade na DF-130 já está funcionando! 🎉\n\nDepilação a laser, estética facial e corporal, fisioterapia e Pilates clínico — tudo no mesmo lugar, com estacionamento no local.\n\nDF-130, KM 0, sentido Vale do Amanhecer.\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #novaunidade",
-      "alt_text": "Card anunciando a nova unidade da UNICORPOS na DF-130, KM 0, sentido Vale do Amanhecer, com estacionamento no local.",
+      "legenda": "Estamos contratando: Clínico(a) Médico(a) 🩺\n\nVaga para atendimento na nossa unidade em Planaltina/DF.\n\nRequisitos:\n• Graduação em Medicina\n• CRM-DF ativo e regular\n• Experiência em atendimento ambulatorial\n• Perfil acolhedor e trabalho em equipe\n\nVínculo e carga horária combinados na entrevista.\n\nEnvie seu currículo:\nWhatsApp (61) 99578-9867\ncrm@unicorpos.com.br\n\n#unicorpos #planaltinadf #vagasdf #vagasbrasilia #medicina #clinicomedico",
+      "alt_text": "Banner da UNICORPOS em fundo creme com faixa dourada, anunciando vaga de Clinico(a) Medico(a) em Planaltina/DF. Lista os requisitos: graduacao em Medicina, CRM-DF ativo, experiencia em atendimento ambulatorial e trabalho em equipe. No rodape, WhatsApp (61) 99578-9867 e o e-mail crm@unicorpos.com.br.",
       "substituido": true,
-      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
+      "observacao": "SLOT REAPROVEITADO. O dia 9 (25/08) passou sem post - a peca 02_nova_unidade voltou para o banco de reserva. O numero 9 foi reutilizado em 28/08/2026 para o banner de vaga de clinico medico, publicado por disparo manual (workflow_dispatch com dia=9). A rotina por data nunca mais cai no dia 9, entao nao ha risco de republicacao."
     },
     {
       "dia": 10,
