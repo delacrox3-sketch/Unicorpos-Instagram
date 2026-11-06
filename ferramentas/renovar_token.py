@@ -14,6 +14,7 @@ Nunca imprime o token no log.
 import json
 import os
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -38,8 +39,19 @@ def main():
         "fb_exchange_token": token,
     }))
 
-    with urllib.request.urlopen(url, timeout=30) as r:
-        dados = json.loads(r.read().decode())
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            dados = json.loads(r.read().decode())
+    except urllib.error.HTTPError as e:
+        # A resposta de erro da Meta nao contem o token; mostra o motivo real.
+        corpo = e.read().decode(errors="replace")
+        try:
+            erro = json.loads(corpo).get("error", {})
+            corpo = "%s (code %s, subcode %s)" % (erro.get("message"), erro.get("code"),
+                                                  erro.get("error_subcode"))
+        except ValueError:
+            pass
+        sys.exit("A Meta recusou a troca do token: HTTP %s - %s" % (e.code, corpo))
 
     novo = dados.get("access_token")
     if not novo:
@@ -50,6 +62,8 @@ def main():
 
     saida = os.environ.get("GITHUB_OUTPUT")
     if saida:
+        # Mascara o token em todo o log do workflow antes de passa-lo adiante.
+        print("::add-mask::%s" % novo)
         with open(saida, "a") as fh:
             fh.write("token=%s\n" % novo)
     else:

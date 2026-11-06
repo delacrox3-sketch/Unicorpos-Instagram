@@ -35,8 +35,15 @@ jobs:
         if: steps.renovar.outputs.token != ''
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
+          # O token vai por variavel de ambiente, nunca interpolado no comando:
+          # interpolado, ele aparecia em texto puro no log (repositorio publico).
+          TOKEN_NOVO: ${{ steps.renovar.outputs.token }}
         run: |
-          echo -n "${{ steps.renovar.outputs.token }}" | gh secret set IG_TOKEN --repo "${{ github.repository }}"
+          if [ -z "$GH_TOKEN" ]; then
+            echo "Falta o secret GH_PAT (token do GitHub com permissao de escrever secrets)."
+            exit 1
+          fi
+          printf '%s' "$TOKEN_NOVO" | gh secret set IG_TOKEN --repo "${{ github.repository }}"
           echo "Token renovado e guardado."
 
       - name: Avisar se falhou
