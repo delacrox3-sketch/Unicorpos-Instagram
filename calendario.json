@@ -1,318 +1,106 @@
 {
   "_leia_me": "Gerado por ferramentas/gerar_calendario.py. Pode editar a mao: o robo le este arquivo, nao a planilha.",
-  "dia_1": "2026-08-13",
+  "dia_1": "2026-11-03",
   "fuso": "America/Sao_Paulo",
   "conta": "@unicorposclinica",
   "regras": [
-    "Localizacao sempre 'Planaltina (Distrito Federal)' — nunca 'Planaltina de Goias', que e outra cidade.",
+    "Localizacao: unidade de Sobradinho (Edificio Trindade, Sobradinho/DF). Confira o IG_LOCATION_ID antes de ligar o robo.",
     "Texto alternativo sempre preenchido.",
     "Odontologia: nunca publicar tabela de precos (CFO).",
     "Publicidade odontologica cita a RT: Dra. Mayra Gabriela Alves Cardona — CRO-DF n CD-10122.",
     "Fisioterapia: RT Mario Sergio Fernandes de Lima — CREFITO-11 n 442563-F."
   ],
-  "banco_reserva_mes_2": [
-    "01_capa",
-    "02_nova_unidade",
-    "03_laser_face",
-    "F10_escada",
-    "F1_sala_estetica",
-    "F4_consultorio"
-  ],
   "historico": [
-    "26/08/2026 — perfil conferido: 4 posts no ar (13, 14, 18 e 19/08), todos publicados a mao. O robo nunca publicou: a unica execucao ate aqui foi um teste com dry_run marcado, que o GitHub mostrou como sucesso.",
-    "Dias 3, 5, 6, 7, 8 e 9 passaram sem post. As pecas nao foram usadas e estao em banco_reserva_mes_2.",
-    "A numeracao segue ancorada em dia_1 + dias uteis. Dia perdido nao empurra o resto do calendario: cada data continua com a peca que sempre teve."
+    "30/10/2026 — mes 2 iniciado em 03/11/2026 pelo MCP Unicorpos. Estetica em Sobradinho, WhatsApp (61) 98127-8233. Mes 1 arquivado em historico/calendario-2026-08-13.json."
   ],
   "dias": [
     {
-      "dia": 1,
-      "acao": "publicado_manualmente",
-      "arquivo": "F11_fachada",
-      "imagem": "img/F11_fachada.jpg",
-      "categoria": "institucional",
-      "legenda": "Chegamos! 📍 Nossa unidade fica na DF-130, sentido Vale do Amanhecer, em Planaltina/DF.\n\nFisioterapia, quiropraxia, estética, depilação a laser e odontologia — tudo em uma estrutura completa, com estacionamento próprio.\n\nAtendimento com hora marcada. WhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #clinicaespecializada",
-      "alt_text": "",
-      "publicado_em": "2026-08-13"
-    },
-    {
-      "dia": 2,
-      "acao": "publicado_manualmente",
-      "arquivo": "F7_recepcao",
-      "imagem": "img/F7_recepcao.jpg",
-      "categoria": "institucional",
-      "legenda": "Cuidar de você é o nosso propósito. 🤍\n\nEsta é a nossa recepção. Trabalhamos com hora marcada justamente para que ninguém precise esperar.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #clinicaespecializada",
-      "alt_text": "Recepcao da UNICORPOS: balcao escuro com o logotipo dourado da clinica na parede, iluminacao embutida circular no teto e lustre de cristal. Texto sobreposto: Cuidar de voce e o nosso proposito.",
-      "publicado_em": "2026-08-14"
-    },
-    {
-      "dia": 3,
-      "acao": "nao_publicado",
-      "arquivo": "F10_escada",
-      "imagem": "img/F10_escada.jpg",
-      "categoria": "institucional",
-      "legenda": "Um espaco pensado para voce. 🤍\n\nDa recepcao a sala de atendimento, cada canto foi montado para que voce se sinta bem enquanto cuida de si.\n\nVenha conhecer. WhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #clinicaespecializada",
-      "alt_text": "Area de circulacao interna da clinica, com lustre de cristal e painel iluminado da UNICORPOS ao fundo. Texto sobreposto: Um espaco pensado para voce.",
-      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
-    },
-    {
       "dia": 4,
-      "acao": "publicado_manualmente",
-      "arquivo": "F9_porta_fisio",
-      "imagem": "img/F9_porta_fisio.jpg",
-      "categoria": "fisio",
-      "legenda": "Fisioterapia e quiropraxia na unidade da DF-130. 🧑‍⚕️\n\nA avaliação inicial define seu plano de sessões — nada começa sem ela.\n\nSentido Vale do Amanhecer, com estacionamento no local.\nWhatsApp (61) 99578-9867\n\nResponsável Técnico: Mario Sergio Fernandes de Lima — CREFITO-11 nº 442563-F\n\n#unicorpos #fisioterapia #quiropraxia #planaltinadf #valedoamanhecer",
-      "alt_text": "Painel externo dourado da unidade DF-130 com o logotipo UNICORPOS e a inscricao Fisioterapia e Quiropraxia. Texto sobreposto: Unidade DF-130, sentido Vale do Amanhecer, com estacionamento no local.",
-      "publicado_em": "2026-08-18"
-    },
-    {
-      "dia": 5,
-      "acao": "nao_publicado",
-      "arquivo": "F1_sala_estetica",
-      "imagem": "img/F1_sala_estetica.jpg",
-      "categoria": "estetica",
-      "legenda": "Nossa sala de estética 💛\n\nDepilação a laser, limpeza de pele e tecnologias faciais — sempre com avaliação prévia do seu tipo de pele.\n\nAgende: (61) 99578-9867\n\n#unicorpos #depilacaoalaser #esteticafacial #planaltinadf",
-      "alt_text": "Sala de estetica da unidade DF-130, com maca clara, armarios de madeira, persianas e equipamentos ao fundo sob a placa Estetica. Texto sobreposto: Sala de estetica.",
-      "observacao": "Dia util perdido. Em 19/08 foi publicado, no lugar, um carrossel sobre quantas sessoes de laser sao necessarias — peca criada fora do calendario."
+      "acao": "publicar",
+      "arquivo": "NAZ-1104-CONS",
+      "imagem": "img/NAZ-1104-CONS.jpg",
+      "categoria": "institucional",
+      "tipo": "conteudo",
+      "legenda": "Novembro Azul: cuidar de si também é coisa de homem.\n\nO câncer de próstata é o segundo tipo de câncer mais comum entre os homens no Brasil, e as chances de tratamento são muito maiores quando ele é descoberto cedo.\n\nA partir dos 50 anos, ou dos 45 se houver casos na família, converse com um urologista sobre os exames da próstata.\n\nMarque aqui um homem que precisa ouvir isso.\n\nSua essência merece cuidado.\nUNICORPOS · Edifício Trindade, Sobradinho/DF\n\n#novembroazul #saudedohomem #unicorpos #sobradinhodf",
+      "alt_text": "Arte creme da UNICORPOS para o Novembro Azul com um laço azul-marinho e o texto: Cuidar de si também é coisa de homem. A partir dos 50 anos, ou dos 45 com histórico familiar, converse com um urologista sobre a saúde da próstata.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 6,
-      "acao": "nao_publicado",
-      "arquivo": "01_capa",
-      "imagem": "img/01_capa.jpg",
-      "categoria": "institucional",
-      "legenda": "Odontologia, estética e fisioterapia em Planaltina/DF. 🦷✨\n\nSomos duas unidades: a de Odontologia, no Setor Tradicional, e a nova unidade de Fisioterapia & Estética, na DF-130.\n\nPreços publicados, avaliação antes de qualquer procedimento e atendimento com hora marcada — de segunda a sábado.\n\nChame no WhatsApp e agende. 📲\n\n#unicorpos #planaltinadf #valedoamanhecer",
-      "alt_text": "Card de apresentacao da UNICORPOS, clinica de odontologia, estetica e fisioterapia em Planaltina, Distrito Federal.",
-      "substituido": true,
-      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
-    },
-    {
-      "dia": 7,
-      "acao": "nao_publicado",
-      "arquivo": "F4_consultorio",
-      "imagem": "img/F4_consultorio.jpg",
-      "categoria": "odonto",
-      "legenda": "Consulta de avaliação gratuita na nossa odontologia. 🦷\n\nVocê recebe o plano de tratamento e o orçamento por escrito antes de qualquer procedimento.\n\nResponsável Técnica: Dra. Mayra Gabriela Alves Cardona — CRO-DF CD-10122\nWhatsApp (61) 99578-9867\n\n#unicorpos #dentista #odontologia #planaltinadf",
-      "alt_text": "Consultorio odontologico da UNICORPOS com duas estacoes de trabalho, monitores e persianas, sob a placa Odontologia. Texto sobreposto: Consulta de avaliacao gratuita.",
-      "observacao": "Dia util perdido. Era peca de odontologia, que so vai ao ar apos sua aprovacao por e-mail — e o SMTP ainda nao estava configurado."
-    },
-    {
-      "dia": 8,
-      "acao": "nao_publicado",
-      "arquivo": "03_laser_face",
-      "imagem": "img/03_laser_face.jpg",
+      "acao": "publicar",
+      "arquivo": "NAZ-1104-OFER",
+      "imagem": "img/NAZ-1104-OFER.jpg",
       "categoria": "estetica",
-      "legenda": "Depilação a laser facial: os valores por área, sem enrolação. 💛\n\nToda sessão começa com avaliação do seu tipo de pele e do seu histórico — é isso que garante um protocolo seguro.\n\nAgende pelo WhatsApp (61) 99578-9867.\n\n#unicorpos #planaltinadf #valedoamanhecer #depilacaoalaser #esteticafacial",
-      "alt_text": "Card dourado e creme da UNICORPOS com a tabela de valores por area de depilacao a laser facial.",
-      "observacao": "Dia util perdido: o robo ainda nao estava no ar e ninguem publicou a mao."
-    },
-    {
-      "dia": 9,
-      "acao": "publicar",
-      "arquivo": "vaga_clinico_medico",
-      "imagem": "img/vaga_clinico_medico.jpg",
-      "categoria": "institucional",
-      "legenda": "Estamos contratando: Clínico(a) Médico(a) 🩺\n\nVaga para atendimento na nossa unidade em Planaltina/DF.\n\nRequisitos:\n• Graduação em Medicina\n• CRM-DF ativo e regular\n• Experiência em atendimento ambulatorial\n• Perfil acolhedor e trabalho em equipe\n\nVínculo e carga horária combinados na entrevista.\n\nEnvie seu currículo:\nWhatsApp (61) 99578-9867\ncrm@unicorpos.com.br\n\n#unicorpos #planaltinadf #vagasdf #vagasbrasilia #medicina #clinicomedico",
-      "alt_text": "Banner da UNICORPOS em fundo creme com faixa dourada, anunciando vaga de Clinico(a) Medico(a) em Planaltina/DF. Lista os requisitos: graduacao em Medicina, CRM-DF ativo, experiencia em atendimento ambulatorial e trabalho em equipe. No rodape, WhatsApp (61) 99578-9867 e o e-mail crm@unicorpos.com.br.",
-      "substituido": true,
-      "observacao": "SLOT REAPROVEITADO. O dia 9 (25/08) passou sem post - a peca 02_nova_unidade voltou para o banco de reserva. O numero 9 foi reutilizado em 28/08/2026 para o banner de vaga de clinico medico, publicado por disparo manual (workflow_dispatch com dia=9). A rotina por data nunca mais cai no dia 9, entao nao ha risco de republicacao."
-    },
-    {
-      "dia": 10,
-      "acao": "publicar",
-      "arquivo": "F2_laser",
-      "imagem": "img/F2_laser.jpg",
-      "categoria": "estetica",
-      "legenda": "Depilação a laser com tecnologia HAKON. ✨\n\nAntes da primeira sessão avaliamos seu tipo de pele e seu histórico — é isso que garante um protocolo seguro.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #depilacaoalaser #planaltinadf",
-      "alt_text": "Equipamento de depilacao a laser HAKON, em azul escuro, instalado na sala de atendimento da unidade DF-130. Texto sobreposto: Tecnologia HAKON."
-    },
-    {
-      "dia": 11,
-      "acao": "publicar",
-      "arquivo": "12_horarios",
-      "imagem": "img/12_horarios.jpg",
-      "categoria": "institucional",
-      "legenda": "Nosso horário de atendimento 🕗\n\nSegunda a sexta: 08h às 12h e 14h às 18h\nSábado: 08h às 12h\nDomingo e feriados: fechado\n\nSempre com hora marcada — chame no WhatsApp para agendar.\n\n#unicorpos #planaltinadf #valedoamanhecer",
-      "alt_text": "Card da UNICORPOS com o horario de funcionamento: segunda a sexta das 8h as 12h e das 14h as 18h, sabado das 8h as 12h, domingo e feriados fechado."
+      "tipo": "promocao",
+      "legenda": "Novembro Azul na UNICORPOS: um tempo só seu.\n\nDepilação a laser na meia barba (R$ 59,90), limpeza de pele profunda (R$ 180) e massagem relaxante (R$ 140). Cuidar da aparência e do bem-estar também faz parte de se cuidar.\n\nE neste mês, não esqueça: a partir dos 50 anos (ou 45 com histórico familiar), converse com um urologista sobre a saúde da próstata.\n\nValores de referência por sessão; o plano é definido na avaliação.\nChame no WhatsApp e diga que viu o post NAZ-1104-OFER.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#novembroazul #saudedohomem #unicorpos #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte creme da UNICORPOS para o Novembro Azul, Cuidados para ele: depilação a laser na meia barba por R$ 59,90, limpeza de pele profunda por R$ 180 e massagem relaxante por R$ 140, com botão de WhatsApp (61) 98127-8233.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 12,
       "acao": "publicar",
-      "arquivo": "06_massagens",
-      "imagem": "img/06_massagens.jpg",
+      "arquivo": "BF-1118-TEAS",
+      "imagem": "img/BF-1118-TEAS.jpg",
       "categoria": "estetica",
-      "legenda": "Massagens e terapias corporais para quem precisa desacelerar. 💆\n\nRelaxante, modeladora, drenagem linfática e liberação miofascial.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #depilacaoalaser #esteticafacial",
-      "alt_text": "Foto de uma sessao de massagem: profissional aplicando pressao com as duas maos nas costas de uma pessoa deitada na maca, coberta por toalha bege. Abaixo, faixa creme da UNICORPOS com o titulo Massagens e terapias corporais e a lista: relaxante, modeladora, drenagem linfatica e liberacao miofascial.",
-      "substituido": true,
-      "observacao": "Card com foto (banco Pexels) substituiu a peca antiga 06_massagens, que tinha o miolo vazio. Gerado por ferramentas/gerar_card_foto.py em 28/08/2026."
-    },
-    {
-      "dia": 13,
-      "acao": "publicar",
-      "arquivo": "F6_fisio",
-      "imagem": "img/F6_fisio.jpg",
-      "categoria": "fisio",
-      "legenda": "Atendimento individual, do começo ao fim. 🧑‍⚕️\n\nSem sala cheia e sem sessão genérica: a avaliação define o que o seu corpo precisa.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #fisioterapia #planaltinadf",
-      "alt_text": "Sala de fisioterapia da UNICORPOS com maca de atendimento, plantas e escrivaninha junto a janela. Texto sobreposto: Atendimento individual."
+      "tipo": "promocao",
+      "legenda": "Black Friday UNICORPOS: de 23 a 27 de novembro.\n\nEste ano vai ser diferente: pacotes de depilação a laser com 6 sessões, em 6x sem juros no cartão, para você começar agora e chegar ao verão com o tratamento em andamento.\n\nQuem entrar na lista de prioridade recebe os valores antes de todo mundo e escolhe os melhores horários. É só mandar \"BLACK\" no WhatsApp.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1118-TEAS.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte em fundo creme com moldura dourada e uma fênix dourada à direita. Em destaque, a palavra BLACK em letras grandes escuras e FRIDAY em dourado; abaixo: de 23 a 27 de novembro, pacotes de depilação a laser em 6x sem juros, mande BLACK no WhatsApp (61) 98127-8233.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 14,
       "acao": "publicar",
-      "arquivo": "04_laser_corpo",
-      "imagem": "img/04_laser_corpo.jpg",
+      "arquivo": "BF-1123-ABER",
+      "imagem": "img/BF-1123-ABER.jpg",
       "categoria": "estetica",
-      "legenda": "Depilação a laser corporal — tabela completa de preços. 💛\n\nPacotes com parcelamento e avaliação prévia inclusa.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #depilacaoalaser #esteticafacial",
-      "alt_text": "Card dourado e creme da UNICORPOS com a tabela de valores e pacotes de depilacao a laser corporal."
+      "tipo": "promocao",
+      "legenda": "Começou a Black Friday UNICORPOS!\n\nDe hoje até sexta (27/11), pacotes de 6 sessões de depilação a laser com tecnologia Hakon, em 6x sem juros:\n\n• Axilas + virilha: R$ 599 (6x de R$ 99,83)\n• Buço + axilas: R$ 369 (6x de R$ 61,50)\n• Meia barba: R$ 289 (6x de R$ 48,17)\n• Meia perna + axilas + virilha: R$ 949 (6x de R$ 158,17)\n• Perna inteira + axilas + virilha: R$ 1.199 (6x de R$ 199,83)\n• Corpo completo: R$ 2.690 (6x de R$ 448,33)\n\nO pacote vale por 12 meses e o intervalo entre as sessões é definido na avaliação.\n\nPrefere experimentar antes? A sessão avulsa feita na Black vale como parte do pacote se você fechar em até 7 dias.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1123-ABER.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte em fundo creme com moldura dourada, uma faixa escura com o título BLACK FRIDAY em letras douradas e a lista dos pacotes de depilação a laser de 6 sessões em 6x sem juros: buço mais axilas R$ 61,50, axilas mais virilha R$ 99,83, meia perna mais axilas mais virilha R$ 158,17, perna inteira mais axilas mais virilha R$ 199,83 e, em destaque, corpo completo R$ 448,33. Um aviso diz que a sessão avulsa vale como parte do pacote se fechar em até 7 dias.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 15,
       "acao": "publicar",
-      "arquivo": "07_fisioterapia",
-      "imagem": "img/07_fisioterapia.jpg",
-      "categoria": "fisio",
-      "legenda": "Fisioterapia ortopédica e de coluna, com avaliação que define seu plano. 🧑‍⚕️\n\nSessão ortopédica R$ 180 · Reabilitação de coluna R$ 180 · RPG R$ 180 · Pós-operatória R$ 200 · Pacote 10 sessões R$ 1.300\n\nDF-130 · WhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #fisioterapia #pilates",
-      "alt_text": "Card da UNICORPOS com os valores de fisioterapia ortopedica, reabilitacao de coluna, RPG e atendimento pos-operatorio.",
-      "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Equipe). Substituido por peca do banco de reserva."
+      "arquivo": "BF-1124-AXVI",
+      "imagem": "img/BF-1124-AXVI.jpg",
+      "categoria": "estetica",
+      "tipo": "promocao",
+      "legenda": "O pacote mais pedido da Black Friday: axilas + virilha.\n\n6 sessões de depilação a laser por R$ 599, em 6x de R$ 99,83 sem juros. Feitas uma a uma, as mesmas sessões saem por R$ 839,40.\n\nValor exclusivo para compras de 23 a 27/11. Pacote válido por 12 meses.\n\nPrefere experimentar antes? A sessão avulsa feita na Black vale como parte do pacote se você fechar em até 7 dias.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1124-AXVI.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte em fundo creme com moldura dourada, uma faixa escura com o título BLACK FRIDAY em letras douradas e uma fênix dourada à direita. Texto: pacote axilas mais virilha, 6 sessões de depilação a laser em 6x de R$ 99,83 sem juros, total R$ 599, contra R$ 839,40 avulso. Um aviso diz que a sessão avulsa vale como parte do pacote se fechar em até 7 dias.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 16,
       "acao": "publicar",
-      "arquivo": "F8_espera",
-      "imagem": "img/F8_espera.jpg",
-      "categoria": "institucional",
-      "legenda": "Um lugar tranquilo para começar o dia. 🤍\n\nNossa sala de espera — climatizada, com café e sem correria.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #clinicaespecializada",
-      "alt_text": "Sala de espera da UNICORPOS com poltronas escuras diante de uma parede envidracada com vista para a area externa, e lustre de cristal ao fundo. Texto sobreposto: Conforto de quem espera pouco."
+      "arquivo": "BF-1125-PIAV",
+      "imagem": "img/BF-1125-PIAV.jpg",
+      "categoria": "estetica",
+      "tipo": "promocao",
+      "legenda": "Pernas lisinhas para o verão inteiro.\n\nPacote Black Friday perna inteira + axilas + virilha: 6 sessões de depilação a laser por R$ 1.199, em 6x de R$ 199,83 sem juros. Avulsas, as mesmas sessões somariam R$ 1.738,80.\n\nCompras de 23 a 27/11. Pacote válido por 12 meses.\n\nPrefere experimentar antes? A sessão avulsa feita na Black vale como parte do pacote se você fechar em até 7 dias.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1125-PIAV.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte em fundo creme com moldura dourada, uma faixa escura com o título BLACK FRIDAY em letras douradas e uma fênix dourada à direita. Texto: pacote perna inteira mais axilas mais virilha, 6 sessões de depilação a laser em 6x de R$ 199,83 sem juros, total R$ 1.199, contra R$ 1.738,80 avulso. Um aviso diz que a sessão avulsa vale como parte do pacote se fechar em até 7 dias.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 17,
       "acao": "publicar",
-      "arquivo": "05_estetica_facial",
-      "imagem": "img/05_estetica_facial.jpg",
+      "arquivo": "BF-1126-MPAV",
+      "imagem": "img/BF-1126-MPAV.jpg",
       "categoria": "estetica",
-      "legenda": "Limpeza de pele, peelings e tecnologias faciais na unidade da DF-130. ✨\n\nCada protocolo é definido depois da avaliação da sua pele.\n\nAgende: (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #depilacaoalaser #esteticafacial",
-      "alt_text": "Card da UNICORPOS sobre limpeza de pele, peelings e tecnologias faciais na unidade da DF-130."
+      "tipo": "promocao",
+      "legenda": "Quer começar pela meia perna?\n\nPacote Black Friday meia perna + axilas + virilha: 6 sessões de depilação a laser por R$ 949, em 6x de R$ 158,17 sem juros. Avulsas, sairiam por R$ 1.378,80.\n\nFaltam só dois dias: compras até sexta, 27/11. Pacote válido por 12 meses.\n\nPrefere experimentar antes? A sessão avulsa feita na Black vale como parte do pacote se você fechar em até 7 dias.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1126-MPAV.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte em fundo creme com moldura dourada, uma faixa escura com o título BLACK FRIDAY em letras douradas e uma fênix dourada à direita. Texto: pacote meia perna mais axilas mais virilha, 6 sessões de depilação a laser em 6x de R$ 158,17 sem juros, total R$ 949, contra R$ 1.378,80 avulso. Um aviso diz que a sessão avulsa vale como parte do pacote se fechar em até 7 dias.",
+      "origem": "mcp-unicorpos"
     },
     {
       "dia": 18,
       "acao": "publicar",
-      "arquivo": "15_lgpd",
-      "imagem": "img/15_lgpd.jpg",
-      "categoria": "institucional",
-      "legenda": "Seus dados estão protegidos 🔒\n\nUsamos suas informações apenas para agendamento e atendimento. Não compartilhamos com terceiros para fins comerciais, e você pode pedir a exclusão quando quiser.\n\nTratamento conforme a Lei nº 13.709/2018 (LGPD).\n\n#unicorpos #planaltinadf #valedoamanhecer",
-      "alt_text": "Card da UNICORPOS explicando que os dados dos pacientes sao usados apenas para agendamento e atendimento, conforme a Lei 13.709/2018.",
-      "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Dica). Substituido por peca do banco de reserva."
-    },
-    {
-      "dia": 19,
-      "acao": "publicar",
-      "arquivo": "F3_equipamentos",
-      "imagem": "img/F3_equipamentos.jpg",
+      "arquivo": "BF-1127-ULTI",
+      "imagem": "img/BF-1127-ULTI.jpg",
       "categoria": "estetica",
-      "legenda": "Cada protocolo tem o seu equipamento. ✨\n\nUltrassom focado, radiofrequência e tecnologias corporais — a indicação vem da avaliação, não do catálogo.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #esteticacorporal #planaltinadf",
-      "alt_text": "Equipamentos de estetica corporal da UNICORPOS, incluindo aparelho de ultrassom focado, em sala com parede texturizada. Texto sobreposto: Equipamento para cada protocolo."
-    },
-    {
-      "dia": 20,
-      "acao": "publicar",
-      "arquivo": "14_como_funciona",
-      "imagem": "img/14_como_funciona.jpg",
-      "categoria": "institucional",
-      "legenda": "Como funciona o seu primeiro atendimento aqui 👇\n\n1. Avaliação — analisamos seu caso, histórico e objetivos\n2. Plano e valor — você recebe o que será feito e quanto custa\n3. Consentimento — só começamos depois do seu de acordo\n\nNenhum resultado é garantido: cada pessoa responde de um jeito.\n\n#unicorpos #planaltinadf #valedoamanhecer",
-      "alt_text": "Card da UNICORPOS explicando os tres passos da primeira visita: avaliacao, plano e valor, e consentimento. Rodape informa que nenhum resultado e garantido."
-    },
-    {
-      "dia": 21,
-      "acao": "publicar",
-      "arquivo": "17_pos_laser",
-      "imagem": "img/17_pos_laser.jpg",
-      "categoria": "estetica",
-      "legenda": "Fez laser? Os dois dias seguintes contam tanto quanto a sessão. ☀️\n\nSem sol direto, sem água muito quente, sem sauna e sem treino pesado nas primeiras 24 horas. E protetor solar na área tratada todo dia, mesmo com tempo fechado.\n\nVermelhidão leve por algumas horas é esperado. Se passar disso, chama a gente que a gente olha.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #depilacaoalaser #planaltinadf #cuidadoscomapele",
-      "alt_text": "Card da UNICORPOS com cuidados apos a sessao de depilacao a laser: evitar sol, calor e exercicio nas primeiras 24 horas, usar protetor solar todo dia, e o aviso de que vermelhidao leve por algumas horas e esperada.",
-      "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Estrutura). Substituido por peca do banco de reserva."
-    },
-    {
-      "dia": 22,
-      "acao": "publicar",
-      "arquivo": "F5_ambiente",
-      "imagem": "img/F5_ambiente.jpg",
-      "categoria": "institucional",
-      "legenda": "Conforto e biossegurança em cada sala. 🤍\n\nSalas individuais, climatizadas e higienizadas a cada atendimento.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #clinicaespecializada",
-      "alt_text": "Sala de atendimento da UNICORPOS com equipamentos de estetica, maca e bancada clara junto a janela. Texto sobreposto: Conforto e biosseguranca."
-    },
-    {
-      "dia": 23,
-      "acao": "publicar",
-      "arquivo": "11_pilates_rpg",
-      "imagem": "img/11_pilates_rpg.jpg",
-      "categoria": "fisio",
-      "legenda": "Pilates clínico conduzido por fisioterapeuta. 🧘\n\nIndividual R$ 200 · Em dupla R$ 150 · Em grupo R$ 100 (por sessão)\nLiberação miofascial R$ 170 · Massoterapia R$ 150\n\nTurmas pequenas e avaliação postural inclusa. WhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #valedoamanhecer #fisioterapia #pilates",
-      "alt_text": "Card da UNICORPOS com os valores de Pilates clinico individual, em dupla e em grupo, alem de liberacao miofascial e massoterapia."
-    },
-    {
-      "dia": 24,
-      "acao": "publicar",
-      "arquivo": "18_primeira_fisio",
-      "imagem": "img/18_primeira_fisio.jpg",
-      "categoria": "fisio",
-      "legenda": "Nunca fez fisioterapia e não sabe como começa? É assim. 🤍\n\nPrimeiro uma avaliação: conversa e testes de movimento para entender sua queixa. Depois você recebe o plano — quantas sessões, com que frequência e quanto custa, antes de começar qualquer coisa.\n\nO atendimento é individual, com hora marcada. Uma pessoa por vez.\n\nResponsável Técnico: Mario Sergio Fernandes de Lima — CREFITO-11 nº 442563-F\nWhatsApp (61) 99578-9867\n\n#unicorpos #fisioterapia #planaltinadf #valedoamanhecer",
-      "alt_text": "Card da UNICORPOS explicando os tres passos de quem nunca fez fisioterapia: avaliacao, plano de sessoes com valor informado, e atendimento individual com hora marcada.",
-      "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Enquete). Substituido por peca do banco de reserva."
-    },
-    {
-      "dia": 25,
-      "acao": "publicar",
-      "arquivo": "16_quiropraxia",
-      "imagem": "img/16_quiropraxia.jpg",
-      "categoria": "fisio",
-      "legenda": "Quiropraxia: cuidado para a sua coluna. 🦴\n\nTécnica manual que trabalha o alinhamento da coluna e das articulações, indicada para dores nas costas, no pescoço e tensão muscular.\n\nComo tudo aqui, começa por uma avaliação — é ela que diz se a quiropraxia é o caminho para o seu caso.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #quiropraxia #dornascostas #planaltinadf",
-      "alt_text": "Card da UNICORPOS explicando o que e quiropraxia e para quais casos ela e indicada."
-    },
-    {
-      "dia": 26,
-      "acao": "publicar",
-      "arquivo": "13_unidades",
-      "imagem": "img/13_unidades.jpg",
-      "categoria": "institucional",
-      "legenda": "Onde nos encontrar em Planaltina/DF 📍\n\nODONTOLOGIA — Av. Independência, Q. 65, L. 15, Setor Tradicional · (61) 99578-9867\n\nFISIOTERAPIA & ESTÉTICA — DF-130, KM 0, sentido Vale do Amanhecer · (61) 99578-9867 · com estacionamento\n\n#unicorpos #planaltinadf #valedoamanhecer",
-      "alt_text": "Card da UNICORPOS com o endereco das duas unidades: odontologia no Setor Tradicional e fisioterapia e estetica na DF-130."
-    },
-    {
-      "dia": 27,
-      "acao": "publicar",
-      "arquivo": "19_biosseguranca",
-      "imagem": "img/19_biosseguranca.jpg",
-      "categoria": "institucional",
-      "legenda": "Tem uma parte do atendimento que você não vê — e é bom que seja assim. 🧼\n\nEntre um paciente e outro, maca, aparelhos e superfícies são higienizados. O que é de uso único é aberto e descartado na sua frente. As salas são individuais, climatizadas e ventiladas.\n\nBiossegurança não é diferencial. É obrigação.\n\nWhatsApp (61) 99578-9867\n\n#unicorpos #planaltinadf #biosseguranca #clinicaespecializada",
-      "alt_text": "Card da UNICORPOS sobre a rotina de higienizacao: maca e aparelhos limpos a cada paciente, material de uso unico descartado na frente do paciente, e salas individuais climatizadas.",
-      "substituido": true,
-      "observacao": "Dia de story com conteudo humano (Bastidores). Substituido por peca do banco de reserva."
-    },
-    {
-      "dia": 28,
-      "acao": "aprovar",
-      "arquivo": "08_odontologia",
-      "imagem": "img/08_odontologia.jpg",
-      "categoria": "odonto",
-      "legenda": "Consulta de avaliação gratuita na nossa unidade de odontologia. 🦷\n\nVocê recebe o plano de tratamento e o orçamento por escrito antes de qualquer procedimento — sem surpresa depois.\n\nUrgência com dor? Priorizamos seu encaixe no mesmo dia.\n\nSetor Tradicional, Planaltina/DF · WhatsApp (61) 99578-9867\nRT: Dra. Mayra Gabriela Alves Cardona — CRO-DF CD-10122\n\n#unicorpos #planaltinadf #valedoamanhecer #dentista #odontologia",
-      "alt_text": "Card da UNICORPOS sobre a consulta de avaliacao gratuita em odontologia, com plano de tratamento e orcamento por escrito.",
-      "observacao": "Odontologia: nao publica sozinho. Vai por e-mail para aprovacao (Codigo de Etica Odontologica / CFO)."
-    },
-    {
-      "dia": 29,
-      "acao": "publicar",
-      "arquivo": "09_agendar",
-      "imagem": "img/09_agendar.jpg",
-      "categoria": "institucional",
-      "legenda": "Bora agendar? 📲\n\nOdontologia: (61) 99578-9867\nFisioterapia & Estética: (61) 99578-9867\n\nAtendimento com hora marcada, de segunda a sábado.\n\n#unicorpos #planaltinadf #valedoamanhecer",
-      "alt_text": "Card da UNICORPOS convidando para agendar atendimento pelo WhatsApp, com hora marcada de segunda a sabado."
-    },
-    {
-      "dia": 30,
-      "acao": "balanco",
-      "observacao": "Fim do mes 1. Revisar alcance, salvamentos e conversas iniciadas."
+      "tipo": "promocao",
+      "legenda": "Último dia da Black Friday UNICORPOS!\n\nHoje é a última chance de fechar os pacotes de 6 sessões de depilação a laser em 6x sem juros, a partir de R$ 289 (meia barba) e R$ 599 (axilas + virilha).\n\nOs horários do mês estão sendo reservados por ordem de compra. Chame agora no WhatsApp.\n\nPrefere experimentar antes? A sessão avulsa feita na Black vale como parte do pacote se você fechar em até 7 dias.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1127-ULTI.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
+      "alt_text": "Arte em fundo creme com moldura dourada, uma faixa escura com o título BLACK FRIDAY em letras douradas, o selo Último dia 27/11 e a lista dos pacotes de depilação a laser de 6 sessões em 6x sem juros, de R$ 61,50 a R$ 448,33 por mês. Um aviso diz que a sessão avulsa vale como parte do pacote se fechar em até 7 dias.",
+      "origem": "mcp-unicorpos"
     }
   ]
 }
