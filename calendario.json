@@ -38,14 +38,15 @@
     },
     {
       "dia": 8,
-      "acao": "publicar",
+      "acao": "publicado_manualmente",
       "arquivo": "TOX-1112-AVAL",
       "imagem": "img/TOX-1112-AVAL.jpg",
       "categoria": "estetica",
       "tipo": "promocao",
       "legenda": "Toxina botulínica na UNICORPOS: agenda aberta em novembro.\n\nA aplicação é rápida, feita no consultório e sem cortes: você sai e segue a sua rotina no mesmo dia.\n\nE nada de pacote pronto. Na avaliação, a gente olha o seu rosto com calma e define os pontos e a dose certos para você.\n\nProfissional habilitado e produto com registro na Anvisa. Os resultados variam de pessoa para pessoa.\n\nGaranta seu horário: chame no WhatsApp e diga que viu o post TOX-1112-AVAL.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #toxinabotulinica #esteticafacial #esteticasobradinho #sobradinhodf",
       "alt_text": "Foto ilustrativa de uma profissional de estética, de uniforme verde-escuro e luvas, marcando pontos brancos com lápis na testa de uma paciente sorridente, sentada numa poltrona creme; ao lado, uma bandeja dourada com seringa tampada. No alto, o logotipo UNICORPOS, o selo agenda aberta em novembro e o título Toxina botulínica do jeito certo para o seu rosto. Abaixo: rápido e sem cortes; planejado para você; com segurança, profissional habilitado e produto registrado na Anvisa. Botão: quero agendar, pelo WhatsApp.",
-      "origem": "mcp-unicorpos"
+      "origem": "mcp-unicorpos",
+      "observacao": "Publicado em 09/11/2026 por disparo manual (execucao #61)."
     },
     {
       "dia": 12,
