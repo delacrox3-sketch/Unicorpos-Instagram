@@ -51,14 +51,15 @@
     },
     {
       "dia": 12,
-      "acao": "publicar",
+      "acao": "publicado_manualmente",
       "arquivo": "BF-1118-TEAS",
       "imagem": "img/BF-1118-TEAS.jpg",
       "categoria": "estetica",
       "tipo": "promocao",
       "legenda": "Black Friday UNICORPOS: de 23 a 27 de novembro.\n\nEste ano vai ser diferente: pacotes de depilação a laser com 6 sessões, em 6x sem juros no cartão, para você começar agora e chegar ao verão com o tratamento em andamento.\n\nQuem entrar na lista de prioridade recebe os valores antes de todo mundo e escolhe os melhores horários. É só mandar \"BLACK\" no WhatsApp.\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1118-TEAS.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf",
       "alt_text": "Arte em fundo creme com moldura dourada e uma fênix dourada à direita. Em destaque, a palavra BLACK em letras grandes escuras e FRIDAY em dourado; abaixo: de 23 a 27 de novembro, pacotes de depilação a laser em 6x sem juros, mande BLACK no WhatsApp (61) 98127-8233.",
-      "origem": "mcp-unicorpos"
+      "origem": "mcp-unicorpos",
+      "observacao": "Publicado em 18/11/2026 por disparo manual (execucao 44308095565, media_id 17931905400526909)."
     },
     {
       "dia": 14,
