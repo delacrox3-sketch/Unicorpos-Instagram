@@ -111,14 +111,15 @@
     },
     {
       "dia": 18,
-      "acao": "publicar",
+      "acao": "publicado_manualmente",
       "arquivo": "BF-1127-ULTI",
       "imagem": "img/BF-1127-ULTI.jpg",
       "categoria": "estetica",
       "tipo": "promocao",
       "legenda": "Último dia da Black Friday UNICORPOS!\n\nHoje é a última chance de fechar os pacotes de 6 sessões de depilação a laser em 6x sem juros, a partir de R$ 289 (meia barba) e R$ 599 (axilas + virilha).\n\nOs horários do mês estão sendo reservados por ordem de compra. Chame agora no WhatsApp.\n\nPrefere experimentar antes? A sessão avulsa feita na Black vale como parte do pacote se você fechar em até 7 dias.\n\nBônus da Black: quem fechar preenchimento ou toxina nesta semana ganha avaliação gratuita + 1 sessão de depilação a laser (área definida na avaliação).\n\nValores de pacote para compras de 23 a 27/11/2026; a avaliação define se o tratamento é indicado para você.\nChame no WhatsApp e diga que viu o post BF-1127-ULTI.\nAgende sua avaliação: WhatsApp (61) 98127-8233\nEdifício Trindade, Lojas 5 e 6 · Sobradinho, Brasília/DF\n\n#unicorpos #blackfriday #depilacaoalaser #esteticasobradinho #sobradinhodf #sobradinho2 #planaltinadf #grandecolorado #lagonorte #brasiliadf #esteticabrasilia",
       "alt_text": "Arte em fundo creme com moldura dourada, uma faixa escura com o título BLACK FRIDAY em letras douradas, o selo Último dia 27/11 e a lista dos pacotes de depilação a laser de 6 sessões em 6x sem juros, de R$ 61,50 a R$ 448,33 por mês. Um aviso diz que a sessão avulsa vale como parte do pacote se fechar em até 7 dias.",
-      "origem": "mcp-unicorpos"
+      "origem": "mcp-unicorpos",
+      "observacao": "Publicado pelo disparo manual em 27/11/2026 às 09:28 (America/Sao_Paulo), media_id=18147130393613868"
     }
   ]
 }
